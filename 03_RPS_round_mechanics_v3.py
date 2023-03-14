@@ -24,6 +24,7 @@ def check_rounds():
 
 # MAin routine foes here...
 
+# ask user for # of rounds then loop...
 rounds_played = 0
 choose_instruction = "please choose a rock (r), paper " \
                      "(p) or scissors (s)"
@@ -45,20 +46,21 @@ while end_game == "no":
         heading = "Round {} of" \
                   " {} ".format(rounds_played + 1, rounds)
 
-        print(heading)
-        choose = input("{} or 'xxx' to"
-                       " end: ".format(choose_instruction))
+    print(heading)
+    choose = input("{} or 'xxx' to"
+                   " end: ".format(choose_instruction))
 
-        # End game if exit code is typed
-        if choose == "xxx":
-            break
+    # End game if exit code is typed
+    if choose == "xxx":
+        break
 
-        if rounds_played == rounds - 1:
-            end_game = "yes"
+    # **** rest of loop / game *****
+    print("you chose {]".format(choose))
 
-        # rest of loop / game
-        print("you chose {]".format(choose))
+    rounds_played += 1
 
-        rounds_played += 1
+    # end game if requested # of rounds has been played
+    if rounds_played == rounds:
+        break
 
-    print("Thank you fro playing")
+print("Thank you fro playing")

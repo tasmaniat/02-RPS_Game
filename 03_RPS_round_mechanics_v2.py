@@ -6,7 +6,7 @@ def check_rounds():
         response = input("How many rounds")
 
         round_error = "Please type either <enter> " \
-                      "or an integer that is more then 0"
+                      "or an integer that is more then 0\n"
         if response != "":
             try:
                 response = int(response)
