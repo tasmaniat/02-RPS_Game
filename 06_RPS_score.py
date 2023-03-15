@@ -10,7 +10,7 @@ test_results =["won", "won", "loss", "loss", "tie"]
 
 # Play game
 for item in test_results:
-    rounds_played +=1
+    rounds_played += 1
 
     # Generate computer choice
 
@@ -22,4 +22,14 @@ for item in test_results:
     elif result == "loss":
         rounds_lost += 1
 
-    
+# Quick Calculations (stats)
+rounds_won = rounds_played - rounds_lost - rounds_drawn
+
+# End of game Statements
+print()
+print('***** End Game Summary *****')
+print("won: {} \t|\t Lost: {} \t|\t Draw: "
+      "{}".format(rounds_won, rounds_lost, rounds_drawn))
+print()
+print("Thanks for playing")
+
