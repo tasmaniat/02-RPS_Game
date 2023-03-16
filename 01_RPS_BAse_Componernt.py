@@ -57,18 +57,17 @@ yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # ask user if they have played before.
+
+
 # If 'yes', show instructions
 
 
 # ask user for # of rounds then loop...
 rounds_played = 0
 
-# intialise lost / drawn counters
+# initialize lost / drawn counters
 rounds_lost = 0
 rounds_drawn = 0
-
-choose_instruction = "please choose a rock (r), paper " \
-                     "(p) or scissors (s)"
 
 # ask user # of rounds, <enter> for infinite mode
 rounds = check_rounds()
