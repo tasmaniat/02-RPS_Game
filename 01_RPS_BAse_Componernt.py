@@ -4,6 +4,7 @@ import random
 # Functions go here
 def check_rounds():
     while True:
+        print()
         response = input("How many rounds")
 
         round_error = "Please type either <enter> or an " \
@@ -41,14 +42,60 @@ def choice_checker(question, valid_list, error):
         # in the list (or the first letter of an item), the
         # full item name is returned
 
-        for item in valid_list:
-            if response == item[0] or response == item:
-                return item
+        for var_item in valid_list:
+            if response == var_item[0] or response == var_item:
+                return var_item
 
         # output error if the item not in list
         print(error)
         print()
 
+
+def yes_no(question):
+    while True:
+        response = input(question).lower()
+
+        if response == "yes" or response == "y":
+            return "yes"
+
+        elif response == "no" or response == "n":
+            return "no"
+
+        else:
+            print("please type yes / no")
+            print()
+
+
+def instructions():
+    print()
+    print("**** How to play ****")
+    print()
+    print("choose either a number of rounds or press <enter> for \n"
+          "infinite mode")
+    print()
+    print("Then for each round, choose from rock \n"
+          "/paper /scissors (or xxx to quit)")
+    print("you can type r / p / s / x if you \n"
+          "don't want to type the entire word.")
+    print()
+    print("The rules are...")
+    print("- Rock beats scissors")
+    print("- Scissors beats paper")
+    print("- Paper beats rock")
+    print()
+    print("*** Have fun ***")
+    print()
+    return ""
+
+
+# Main Routine goes here...
+played_before = yes_no("Have you played the "
+                       "game before?  ")
+
+if played_before == "no":
+    instructions()
+
+print("program continues")
 
 # Main routine goes here
 

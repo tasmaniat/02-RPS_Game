@@ -15,14 +15,23 @@ def yes_no(question):
 
 
 def instructions():
+    print()
     print("**** How to play ****")
     print()
-    print("choose either a number of rounds or press <enter> for infinite mode")
+    print("choose either a number of rounds or press <enter> for \n"
+          "infinite mode")
     print()
-    print("Then for each round, choose from rock "
+    print("Then for each round, choose from rock \n"
           "/paper /scissors (or xxx to quit)")
+    print("you can type r / p / s / x if you \n"
+          "don't want to type the entire word.")
     print()
-    print("The rules of the game go here")
+    print("The rules are...")
+    print("- Rock beats scissors")
+    print("- Scissors beats paper")
+    print("- Paper beats rock")
+    print()
+    print("*** Have fun ***")
     print()
     return ""
 
