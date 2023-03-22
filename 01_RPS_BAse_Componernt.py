@@ -1,7 +1,8 @@
 import random
 
 
-# Functions go here
+# checks users enter an integer that is more than zero
+# or allows <enter> for infinite mode
 def check_rounds():
     while True:
         print()
@@ -31,6 +32,9 @@ def check_rounds():
         return response
 
 
+# checks users enter a valid choice based on a list
+# it accepts either the first letter of the full word
+# and has a custom error message. (returns the full word)
 def choice_checker(question, valid_list, error):
     valid = False
     while not valid:
@@ -51,21 +55,7 @@ def choice_checker(question, valid_list, error):
         print()
 
 
-def yes_no(question):
-    while True:
-        response = input(question).lower()
-
-        if response == "yes" or response == "y":
-            return "yes"
-
-        elif response == "no" or response == "n":
-            return "no"
-
-        else:
-            print("please type yes / no")
-            print()
-
-
+# prints the game's instructins
 def instructions():
     print()
     print("**** How to play ****")
@@ -88,15 +78,6 @@ def instructions():
     return ""
 
 
-# Main Routine goes here...
-played_before = yes_no("Have you played the "
-                       "game before?  ")
-
-if played_before == "no":
-    instructions()
-
-print("program continues")
-
 # Main routine goes here
 
 # Lists of valid responses
@@ -104,8 +85,14 @@ yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # ask user if they have played before.
-# If 'yes', show instructions
+want_instructions = choice_checker("Do you want to see the instructions? ",
+                                   yes_no_list, "Please enter yes or no (y / n)")
 
+# If 'yes', show instructions
+if want_instructions == "yes":
+    instructions()
+
+game_summary = []
 
 # ask user for # of rounds then loop...
 rounds_played = 0
@@ -135,7 +122,7 @@ while end_game == "no":
     print(heading)
     choose_instruction = "please choose rock," \
                          " paper or scissors " \
-                         "or 'xxx' to exit"
+                         "or 'xxx' to exit "
     choose_error = "Please choose from rock /" \
                    "paper / scissors (or xxx to quit)"
 
@@ -176,25 +163,15 @@ while end_game == "no":
 
     rounds_played += 1
 
+    outcome = f'Round {rounds_played}: {feedback}'
+    game_summary.append(outcome)
+
     # end game if requested # of rounds has been played
     if rounds_played == rounds:
         break
 
 # ask user if they want to see their game history.
-# If 'yes' show game history
-game_summary = []
 
-for item in range(0, 5):
-    result = input("choose result: ")
-
-    outcome = "Round {}: {}".format(item, result)
-
-    if result == "lost":
-        rounds_lost += 1
-    elif result == "tie":
-        rounds_drawn += 1
-
-    game_summary.append(outcome)
 
 rounds_won = rounds_played - rounds_lost - rounds_drawn
 
